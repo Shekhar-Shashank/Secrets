@@ -56,10 +56,10 @@ passport.serializeUser(function(user, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://secret-in.herokuapp.com/auth/google/secrets"
+    callbackURL:  "https://secret-in.herokuapp.com/auth/google/secrets"
   },
   function(accessToken, refreshToken, profile, cb) {
-      console.log(profile)
+    //   console.log(profile)
     User.findOrCreate({ googleId: profile.id }, function (err, user) {
       return cb(err, user);
     });
